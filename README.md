@@ -54,6 +54,7 @@ Inside each chapter folder you will find:
 |---------|-------|----------|
 | Chapter 2 | Offline metric design | Freshness monitor, eval run record |
 | Chapter 3 | Offline experiments | Agent evaluation pipeline |
+| Chapter 9 | Multi-armed bandits and advanced experiment designs | Model-selection bandit simulation, design calculators |
 
 ## A note on solutions
 

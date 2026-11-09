@@ -142,7 +142,12 @@ def update_cadence_experiment(intervals: Sequence[int] = (1, 7),
 
 
 if __name__ == "__main__":
-    print("=== Exercise 1: change the floor ===")
+    print("=== Baseline: the three policies of Section 1.6 ===")
+    report("Uniform", run_policy("uniform"))
+    report("Thompson Sampling", run_policy("ts"))
+    report("Thompson + 10% floor", run_policy("ts", floor=0.10))
+
+    print("\n=== Exercise 1: change the floor ===")
     for floor, res in floor_sweep().items():
         report(f"Thompson + {floor:.0%} floor", res)
 
@@ -157,6 +162,14 @@ if __name__ == "__main__":
 
 
 # Expected output:
+#
+# === Baseline: the three policies of Section 1.6 ===
+# Uniform                cumulative regret after 14 days:    1,904 completions
+#                        day-14 traffic share  A:20.0%  B:20.0%  C:20.0%  D:20.0%  E:20.0%
+# Thompson Sampling      cumulative regret after 14 days:      174 completions
+#                        day-14 traffic share  A: 0.0%  B:99.7%  C: 0.0%  D: 0.2%  E: 0.1%
+# Thompson + 10% floor   cumulative regret after 14 days:      345 completions
+#                        day-14 traffic share  A: 2.0%  B:91.9%  C: 2.0%  D: 2.1%  E: 2.0%
 #
 # === Exercise 1: change the floor ===
 # Thompson + 5% floor    cumulative regret after 14 days:      257 completions

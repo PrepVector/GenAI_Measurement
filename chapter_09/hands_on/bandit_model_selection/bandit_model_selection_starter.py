@@ -172,7 +172,12 @@ def update_cadence_experiment(intervals: Sequence[int] = (1, 7),
 
 
 if __name__ == "__main__":
-    print("=== Exercise 1: change the floor ===")
+    print("=== Baseline: the three policies of Section 1.6 ===")
+    report("Uniform", run_policy("uniform"))
+    report("Thompson Sampling", run_policy("ts"))
+    report("Thompson + 10% floor", run_policy("ts", floor=0.10))
+
+    print("\n=== Exercise 1: change the floor ===")
     for floor, res in floor_sweep().items():
         report(f"Thompson + {floor:.0%} floor", res)
 
